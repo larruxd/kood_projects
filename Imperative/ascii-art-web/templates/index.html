@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ASCII ART GENERATOR</title>
+    </head>
+    <body>
+        <h1 style="color:rgb(0, 150, 250);font-family: Arial">
+            ASCII ART GENERATOR
+        </h1><br><br>
+        <br>
+        <div>
+            <p>Choose a banner style. Only ASCII characters 32-126 are allowed.</p>
+            <div>
+                <form action="/ascii-art" method="post">
+                    <input
+                        id="standard"
+                        type="radio"
+                        value="standard.txt"
+                        name="banner"
+                        required
+                        checked
+                    />
+                    <label for="standard">STANDARD</label>
+                    <input
+                        id="shadow"
+                        type="radio"
+                        value="shadow.txt"
+                        name="banner"
+                    />
+                    <label for="shadow">SHADOW</label>
+                    <input
+                        id="thinkertoy"
+                        type="radio"
+                        value="thinkertoy.txt"
+                        name="banner"
+                    />
+                    <label for="thnikertoy">THINKERTOY</label>
+                    <br>
+                    <textarea 
+                        name="text" 
+                        id="test" 
+                        cols="50" 
+                        rows="4" 
+                        placeholder="Write your text here" ></textarea>
+                    <input type="submit" id="submit" value="GENERATE"/>
+                    <br>
+                    <br>
+                </form>
+            </div>
+            <div style="overflow:auto">
+                <form action="/ascii-art" method="post">
+                    <pre style="display: inline-block; border:1px solid Black;">{{.Output}}</pre>
+                </form>
+            </div>
+    </body>
+</html>

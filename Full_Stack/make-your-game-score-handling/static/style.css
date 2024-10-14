@@ -1,0 +1,244 @@
+* {
+    font-family: "VT323", monospace;
+}
+
+body {
+    background: rgb(30, 224, 139);
+    background: radial-gradient(circle, rgb(114, 114, 114) 0%, rgb(0, 0, 0) 100%);
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    color: rgb(255, 255, 0);
+    text-shadow: 2px 2px 7px rgb(255, 255, 120);
+}
+
+/* #gameContainer {
+    box-shadow: 0px 0px 100px black;
+    position: absolute;
+    overflow: hidden;
+    border: 3px solid black;
+    margin-top: 5%;
+} */
+
+#gameContainer {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.tile {
+    position: absolute;
+}
+
+#backgroundTV {
+    background-image: url("../graphics/kinescope_tv.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 75%;
+    position: absolute;
+    overflow: hidden;
+    min-width: 110vh;
+    min-height: 110vh;
+
+    /* overflow: hidden; */
+    /* margin-top: 5%; */
+    /* border: 3px solid rgb(255, 0, 0); */
+}
+
+#message {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(255, 255, 0);
+    text-shadow: 2px 2px 7px rgb(255, 255, 120);
+    /* margin-top: -20%; */
+    margin-bottom: 2%;
+}
+
+#menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000;
+    border: 4px solid #333;
+    padding: 2%;
+    color: #00ff00;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#message {
+    font-size: 25px;
+}
+
+#menu .menu-button {
+    background-color: #333;
+    border: none;
+    color: #00ff00;
+    padding: 2% 0;
+    margin: 2% 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    font-size: 150%;
+}
+
+#menu .menu-button:hover {
+    background-color: #666;
+    color: #fff;
+}
+
+#fps {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: yellow;
+    font-size: 20px;
+}
+
+#pause-tip {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    color: yellow;
+    font-size: 20px;
+}
+
+#score,
+#timer {
+    font-size: 30px;
+    color: yellow;
+    position: absolute;
+    white-space: pre-wrap;
+}
+
+#score {
+    top: 25%;
+    left: 11%;
+}
+
+#timer {
+    top: 25%;
+    left: 80%;
+}
+
+#scoreboardContainer {
+    background-color: #000;
+    border: 4px solid #333;
+    padding: 5px;
+    position: absolute;
+    top: 38%;
+    left: 1%;
+    color: yellow;
+    font-family: inherit;
+    text-align: center;
+}
+
+table,
+th,
+td {
+    font-size: 20px;
+    border: 2px solid rgba(255, 255, 0, 0.164);
+    border-collapse: collapse;
+    margin: 10px;
+    padding-left: 7px;
+    padding-right: 7px;
+    -webkit-background-clip: padding-box; /* for Safari */
+    background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+}
+
+td {
+    max-width: 90px;
+    overflow: hidden;
+}
+.scoreboardButton {
+    background-color: #333;
+    border: none;
+    color: #00ff00;
+    padding: 2% 0;
+    margin: 2% 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    font-size: 100%;
+    width: 30px;
+}
+.scoreboardButton:hover {
+    background-color: #666;
+    color: #fff;
+}
+
+.scoreboardButton:disabled {
+    background-color: #202020;
+    color: #007200;
+    cursor: default;
+}
+
+#submit-score:enabled {
+    background-color: #333;
+}
+#submit-score:disabled {
+    background-color: #202020;
+    color: #007200;
+}
+
+#submit-score:disabled:hover {
+    background-color: #202020;
+    color: #007200;
+    cursor: default;
+}
+
+#enterName {
+    resize: none;
+    background-color: #000;
+    color: yellow;
+    display: flex;
+    white-space: nowrap;
+    overflow-x: scroll;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    font-size: 25px;
+    padding: 2px;
+    margin: 10px;
+    width: 190px;
+    height: 30px;
+}
+
+#percentile {
+    color: yellow;
+    font-size: 20px;
+    text-align: center;
+}
+
+@media (max-height: 900px) {
+    #gameContainer {
+        transform: scale(0.9) translate(-55%, -55%);
+    }
+}
+
+@media (max-height: 800px) {
+    #gameContainer {
+        transform: scale(0.8) translate(-63%, -63%);
+    }
+}
+
+@media (max-height: 700px) {
+    #gameContainer {
+        transform: scale(0.7) translate(-72%, -72%);
+    }
+}

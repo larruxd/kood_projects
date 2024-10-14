@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ascii-art-web</title>
+    <link href="/static/style.css" rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div>
+        <h1>
+            <center>ASCII ART</center>
+        </h1>
+        <h2>
+            This webpage converts your plain old boring text into something even Bob Ross would call art!
+        </h2>
+        <fieldset>
+            <form method="POST" action="/ascii-art" class="formbox">
+
+                <center><label class="form" for="banner_styles">Choose a banner style:</label>
+                    <select class="form" name="banner_styles" id="banner_styles">
+                        <option value="standard">Standard</option>
+                        <option value="shadow">Shadow</option>
+                        <option value="thinkertoy">T(h)inkertoy</option>
+                    </select>
+                </center>
+                <br>
+                <br>
+                <center><label class="form" for="input">Enter your text below:</label>
+                    <br>
+                    <textarea name="input" class="textbox" id="textarea" required="" rows="5" cols="50"
+                        placeholder="enter text here" required></textarea>
+                    <br>
+                </center>
+                <center><input type="submit" class="button" value="Turn into ASCII art"></center>
+            </form>
+            
+        </fieldset>
+    </div>
+    <div>
+        <form method="POST" action="/export-file" class="button">
+            <center><input type="submit" class="button" value="Download as .txt file"></center>
+        </form>
+    </div>
+    <div class="output">
+        <pre style="text-align:center;">{{.}}</pre>
+
+    </div>
+</body>
+
+
+</html>

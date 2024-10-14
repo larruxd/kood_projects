@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ASCII-ART</title>
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+        <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+    </head>
+    <body>
+        <div class="title"><div class="title-text">Write your text in </div><pre class="title-ascii">{{ .TitleArt}}</pre><div class="title-text">style</div></div>
+        <div class="menu">
+            <div class="nes-container">
+                <form method="POST" action="/ascii-art">
+                    <div class="menu-title">
+                        <label>Choose symbols style</label><br>
+                    </div>
+                    <div class="radio">
+                            <label class="radio-menu" for="shadow">
+                                <input type="radio" class="nes-radio"  id="shadow" name="style" value="shadow">
+                                <span>shadow<pre class="menu-ascii">{{.ShadowArt}}</pre></span>
+                            </label><br>
+                            <label class="radio-menu" for="standard">
+                                <input type="radio" class="nes-radio" id="standard" name="style" value="standard" checked>
+                                <span>standard<pre class="menu-ascii">{{.StandardArt}}</pre></span>
+                            </label><br> 
+                            <label class="radio-menu" for="thinkertoy">
+                                <input type="radio" class="nes-radio" id="thinkertoy" name="style" value="thinkertoy">
+                                <span>thinkertoy<pre class="menu-ascii">{{.ThinkertoyArt}}</pre></span>
+                            </label><br>
+                    </div>
+                    <div class="text-input">
+                        <label>Write text for processing</label><br>
+                        <input type="text" class="nes-input" name="inputText" placeholder="Use \n for a new line" required>
+                        <button type="submit" class="nes-btn">convert</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

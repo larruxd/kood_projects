@@ -1,0 +1,82 @@
+body {
+    background-color: lightblue;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.menu {
+    text-align: center;
+    padding: 10px;
+    margin-top: 0%;
+}
+
+.art {
+    padding: 40px;
+    margin-top: 3%;
+    font-weight: bold;
+}
+
+.nes-input {
+    width: relative;
+    max-width:30rem;
+    display: inline-block;
+    border-image-repeat: stretch;
+}
+
+.nes-btn {
+    display: inline-block;
+    margin: 10px;
+    border-image-repeat: stretch;
+}
+
+.text-input {
+    padding: 20px;
+}
+
+.radio {
+    padding: 20px;
+    vertical-align:middle;	
+}
+
+.nes-radio {
+    /*display: inline-block;*/
+    vertical-align:middle;
+} 
+
+.title {
+    margin-top: 0.5%;
+    font-size: 2rem;
+}
+
+.nes-container {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title-text {
+    display: inline-block;
+    padding: 20px;
+    font-weight: bold;
+}
+
+pre {
+    font-weight: bold;
+}
+
+.title-ascii {
+    font-size: 0.5rem;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+.menu-ascii {
+    font-size: 0.5rem;
+    font-weight: bold;
+}
+
+.menu-title {
+    padding: 20px;
+    font-size: 1.5rem;
+}

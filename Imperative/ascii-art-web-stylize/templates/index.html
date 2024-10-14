@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/styles.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+   
+    <title>ASCII ART GENERATOR</title>
+  </head>
+  <body>
+    <h1 class="logo-1">Turn your text into art</h1>
+    <div>
+      <form action="/ascii-art" method="post">
+        <div class="sameline">
+          <div>
+            <p>Choose a style!</p>
+            <label class="rad-label">
+              <input 
+                id="standard" 
+                type="radio" 
+                class="rad-input" 
+                name="banner" 
+                value="standard.txt" 
+                required
+                checked
+              >
+              <div class="rad-design"></div>
+              <div class="rad-text">Standard</div>
+            </label>
+        
+            <label class="rad-label">
+              <input 
+                id="shadow" 
+                type="radio" 
+                class="rad-input" 
+                name="banner" 
+                value="shadow.txt" 
+              >
+              <div class="rad-design"></div>
+              <div class="rad-text">Shadow</div>
+            </label>
+        
+            <label class="rad-label">
+              <input 
+                id="thinkertoy" 
+                type="radio" 
+                class="rad-input" 
+                name="banner" 
+                value="thinkertoy.txt" 
+              >
+              <div class="rad-design"></div>
+              <div class="rad-text">thinkertoy</div>
+            </label>
+          </div>
+          <textarea 
+          class="container"
+          name="text" 
+          id="test" 
+          placeholder="Write your text here. Only ASCII characters 32-126 are allowed."></textarea>
+        
+          <input type="submit" id="submit" value="GENERATE"/>
+        </div>
+        
+           
+      </form>
+
+      <div id="output-box" style="overflow:auto">
+        <form action="/ascii-art" method="post">
+          <pre style="display: inline-block;">{{.Output}}</pre>
+        </form>
+      </div>
+
+    </div>
+  </body>
+</html>

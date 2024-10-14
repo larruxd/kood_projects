@@ -1,0 +1,242 @@
+body {
+    background-color: #F2DEBA;
+}
+
+.header {
+    background-color: #6C00FF;
+    font-size: 35px;
+    height: 10vh;
+    margin-top: 0%;
+    margin-left: 0%;
+    margin-right: 0%;
+    text-align: center;
+    padding: 10px;
+    opacity: 93%;
+}
+
+h1 {
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+    font-family: "Monaco", "Courier New", monospace;
+
+}
+
+h2 {
+    font-size: 20px;
+    color: White;
+    font-family: "Monaco", "Courier New", monospace;
+}
+
+.databox {
+    column-count: 2;
+    column-fill: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #2DCDDF;
+    width: 420px;
+    height: 390px;
+    border: 3px solid #3C79F5;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    padding: 7px;
+    font-size: 16px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+
+.main-body {
+    background-size: 100%;
+}
+
+.imageBand {
+    width: 160px;
+    height: 160px;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+@media (min-width: 1500px) {
+    .main-body {
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+}
+
+@media (max-width: 1499px) {
+    .main-body {
+        display: grid;
+        grid-template-columns: 100%;
+    }
+}
+
+.databox {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+}
+
+.databox:hover,
+.databox:focus,
+.databox:active {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.main-body-about {
+    position: center;
+    left: 0px;
+    width: 100%;
+    padding: 10px;
+}
+
+@media (min-width: 1500px) {
+    .main-body-about {
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        grid-template-areas:
+            "databox concerts";
+    }
+}
+
+@media (max-width: 1499px) {
+    .main-body-about {
+        display: grid;
+        grid-template-columns: 75%;
+        grid-template-areas:
+            "databox"
+            "concerts";
+
+    }
+    .databox-about {
+        position:relative;
+    }
+    .concerts {
+        position:relative;
+        left: 20%;
+        right: 10%;
+        margin-left:auto;
+        margin-right:auto;
+    }
+}
+
+.databox-about {
+    grid-area: databox;
+    column-count: 1;
+    column-fill: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    height: fit-content;
+    margin-bottom: 30px;
+    padding: 7px;
+    
+    background-color: #2DCDDF;
+    border: 3px solid #3C79F5;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    padding: 7px;
+    font-size: 16px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.concerts {
+    grid-area: concerts;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #2DCDDF;
+    border: 3px solid #3C79F5;
+    border-radius: 15px;
+    max-width: 100%;
+    min-width: 1fr;
+    height: auto;
+    margin-bottom: 30px;
+    padding: 15px;
+    font-size: 18px;
+    margin-right 15px;
+
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, 310px);
+    gap: 0px;
+
+}
+
+
+.concertlist {
+    font-size: 16px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    width: 300px;
+    height: auto;
+    border: 3px solid rgb(180, 3, 3);
+    background-color: #5A8F7B;
+    border-radius:10px;
+    margin: 20px;
+    row-gap: 1px;
+    
+}
+
+.loc {
+    font-size: 21px;
+    color: White;
+    font-family: "Monaco", "Courier New", monospace;
+    font-weight: bold;
+}
+
+.backbutton {
+  position:absolute;  
+  top:50px;  
+  left: 80px;  
+  margin-top: 20px;
+  transform: translate(-50%, -50%); 
+  padding: 10px 30px;
+  border: 0;
+  border-radius: 5%;
+  background-color: #d5d7da;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  font-size: 20px; 
+  font-weight: bold;
+}
+
+.homebutton {
+    transform: translate(-50%, -50%); 
+    padding: 10px 30px;
+    border: 0;
+    border-radius: 5%;
+    background-color: #d5d7da;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    font-size: 20px; 
+    font-weight: bold;
+    margin-left:50%;
+    margin-right:50%;
+    margin-top:10%;
+  }
+  
+.error404 {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    background-color: #2DCDDF;
+    width: 420px;
+    height: 390px;
+    border: 3px solid #3C79F5;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    padding: 7px;
+    font-size: 20px;
+    font-weight: bolder;
+    text-justify: center;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.errorpage{
+    background-color: #F2DEBA;
+
+}

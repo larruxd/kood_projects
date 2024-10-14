@@ -1,0 +1,1127 @@
+@import url('https://fonts.cdnfonts.com/css/superhelio');
+
+html,
+body {
+  /* background-color: #88888818 !important; */
+  align-items: center;
+  margin: 0;
+  height: 100%;
+  /* overflow: hidden; */
+}
+
+#musicPlayerContainer {
+  position: fixed; /* Or absolute, depending on your layout needs */
+  bottom: 20px;
+  z-index: 1000; /* Ensure it appears above other content */
+  justify-content: center; /* Center the audio controls horizontally */
+  margin-left: 20px;
+  font-size: xxx-large;
+  border-radius: 30px;
+}
+
+.app {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(29, 29, 29);
+  display: flex;
+  justify-content: center;
+}
+
+/* Waiting Rooms */
+.waiting-rooms-container {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  position: absolute;
+  display: block;
+  z-index: 998;
+}
+
+.waiting-rooms-grid {
+  display: grid;
+  margin: 10px;
+  width: 100%;
+  height: 100vh;
+  margin-left: 5px;
+  grid-gap: 10px;
+  grid-template-areas:
+    'title title title'
+    'countdown countdown countdown'
+    'info info players'
+    'info info players';
+  position: fixed;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.waiting-rooms-title {
+  grid-area: title;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'superhelio _regular', sans-serif;
+  width: 100%;
+  height: 100%;
+  color: red;
+  font-size: xxx-large;
+  border: 3px rgb(105, 104, 104) solid;
+  box-shadow: 0 1px 6px rgba(228, 227, 227, 0.712), 0 1px 4px rgba(253, 253, 253, 0.24);
+  border-radius: 30px;
+  animation: colorChange 10s infinite;
+  background-image: url('/assets/img/background.jpg');
+  background-repeat: repeat;
+}
+
+@keyframes colorChange {
+  0% {
+    color: rgb(253, 252, 252);
+  }
+  25% {
+    color: rgb(118, 118, 248);
+  }
+  50% {
+    color: rgb(8, 94, 253);
+  }
+  75% {
+    color: rgb(111, 7, 247);
+  }
+  100% {
+    color: rgb(243, 5, 5);
+  }
+}
+
+.countdown {
+  grid-area: countdown;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'superhelio _regular', sans-serif;
+  width: 100%;
+  height: 100%;
+  color: rgb(243, 7, 7);
+  font-size: xx-large;
+  background-image: url('/assets/img/background.jpg');
+  background-repeat: repeat;
+  border-radius: 30px;
+  border: 3px rgb(105, 104, 104) solid;
+  box-shadow: 0 1px 6px rgba(228, 227, 227, 0.712), 0 1px 4px rgba(253, 253, 253, 0.24);
+}
+
+.waiting-rooms {
+  grid-area: players;
+  font-family: 'superhelio _regular', sans-serif;
+  color: red;
+  font-size: x-large;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  border-radius: 2rem;
+  position: relative;
+  border: 3px rgb(105, 104, 104) solid;
+  box-shadow: 0 1px 6px rgba(228, 227, 227, 0.712), 0 1px 4px rgba(253, 253, 253, 0.24);
+}
+
+.container {
+  display: grid;
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  margin-left: 5px;
+  grid-gap: 10px;
+  grid-template-areas:
+    'title title title'
+    'other-lives info chatroom'
+    'other-lives game chatroom'
+    'game-updates game chatroom';
+  position: fixed;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.game-title {
+  grid-area: title;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'superhelio _regular', sans-serif;
+  width: 100%;
+  height: 100%;
+  color: lightgray;
+  font-size: xxx-large;
+  border: 3px gray solid;
+  border-radius: 30px;
+  animation: colorChange 10s infinite;
+  background-image: url('/assets/img/background.jpg');
+  background-repeat: repeat;
+}
+
+.lives-container {
+  grid-area: info;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  font-family: 'superhelio _regular', sans-serif;
+  color: lightgray;
+  font-size: x-large;
+  border: 3px red;
+  background-color: #111;
+}
+
+.lives-heart-container {
+  display: flex;
+  margin: 0;
+  height: 100%;
+}
+
+.lives-hearts {
+  margin: 0;
+}
+
+.other-lives-container {
+  grid-area: other-lives;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'superhelio _regular', sans-serif;
+  color: lightgray;
+  font-size: larger;
+  border: 3px red solid;
+  background-image: url('/assets/img/background.jpg');
+  background-repeat: round;
+}
+
+.other-lives-title {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.other-lives {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.other-lives > .lives-heart-container > img {
+  width: 40px;
+  height: 40px;
+  margin: 0;
+}
+
+.power-up-container {
+  grid-area: info;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: End;
+  font-size: xx-large;
+  color: white;
+  font-family: 'superhelio _regular', sans-serif;
+}
+
+.game-updates-container {
+  grid-area: game-updates;
+  font-family: 'superhelio _regular', sans-serif;
+  color: lightgray;
+  font-size: larger;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  border: 3px red solid;
+  background-image: url('/assets/img/background.jpg');
+  background-repeat: round;
+}
+
+.game-updates-title {
+  text-align: center;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+
+.live-updates {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.live-updates-message {
+  font-family: 'superhelio _regular', sans-serif;
+  font-size: medium;
+  padding: 5px;
+  background-color: #191919;
+  border-radius: 20px;
+  margin: 0px 4px 5px 4px;
+  color: whitesmoke;
+  text-align: center;
+}
+
+.chatroom-container {
+  grid-area: chatroom;
+  font-family: 'superhelio _regular', sans-serif;
+  color: lightgray;
+  font-size: larger;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  border: 3px red solid;
+}
+
+.chatroom-container2 {
+  grid-area: chatroom;
+  font-family: 'superhelio _regular', sans-serif;
+  color: rgba(211, 211, 211, 0.349);
+  font-size: smaller;
+  margin: 0;
+  height: 25%;
+  width: 96%;
+  margin-left: 10px;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  bottom: 5px;
+  z-index: 1000; /* Ensure it appears above other content */
+  position: absolute; /* Or absolute, depending on your layout needs */
+  border: 3px rgb(105, 104, 104) solid;
+  box-shadow: 0 1px 6px rgba(228, 227, 227, 0.712), 0 1px 4px rgba(253, 253, 253, 0.24);
+  border-radius: 30px;
+}
+
+.game-container {
+  grid-area: game;
+  width: 100%;
+  height: 100%;
+  border: 3px red solid;
+}
+
+.game-wrapper {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  object-fit: contain;
+  position: relative;
+}
+
+.hard-wall,
+.soft-wall,
+.dirt-patch,
+.loading-1,
+.loading-2,
+.loading-3,
+.loading-4,
+.power-up {
+  position: absolute;
+  margin: 0;
+}
+
+.hard-wall,
+.soft-wall {
+  z-index: 2;
+}
+
+.power-up {
+  z-index: 1;
+}
+
+.power-up-speed-icon,
+.power-up-flames-icon,
+.power-up-bombs-icon {
+  height: 80%;
+  width: 5%;
+  position: relative;
+  margin-right: 10px;
+}
+
+.power-up-speed-icon > img,
+.power-up-flames-icon > img,
+.power-up-bombs-icon > img {
+  height: 100%;
+  padding: 5px;
+}
+
+.power-up-speed-icon > .speed-amount,
+.power-up-flames-icon > .flames-amount,
+.power-up-bombs-icon > .bombs-amount {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: darkorchid;
+  color: whitesmoke;
+  font-size: small;
+  width: 30%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.power-up-speed-icon > .key,
+.power-up-flames-icon > .key,
+.power-up-bombs-icon > .key {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: whitesmoke;
+  font-size: small;
+  width: 30%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.player-1,
+.player-2,
+.player-3,
+.player-4 {
+  position: absolute;
+  z-index: 999;
+}
+
+.player-1 > p,
+.player-2 > p,
+.player-3 > p,
+.player-4 > p {
+  position: absolute;
+  top: -15px;
+  width: 100%;
+  text-align: center;
+  background-color: #00000042;
+  border-radius: 50px;
+  font-size: small;
+  font-weight: bold;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.player-1 > p {
+  color: #ffffff;
+}
+
+.player-2 > p {
+  color: #ffab00;
+}
+
+.player-3 > p {
+  color: #99ff00;
+}
+
+.player-4 > p {
+  color: #79c3ff;
+}
+
+/* Chats */
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'superhelio _regular', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-app {
+  width: 100%;
+  height: 100%;
+  background: #ffffff3a;
+  z-index: 10;
+}
+
+.waiting-rooms > .screen {
+  display: none;
+  position: absolute;
+  z-index: 999;
+  background-color: whitesmoke;
+}
+
+.waiting-rooms > .screen.active {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.screen .form {
+  width: 100%;
+  height: 100%;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  background: linear-gradient(-45deg, #161616, #c2802a, #100664, #6d0214);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.screen .form-input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0px;
+  padding: 10px;
+}
+
+.screen h2 {
+  margin-bottom: 20px;
+  font-size: 30px;
+  color: red;
+  border-bottom: 4px solid red;
+  padding: 5px 0px;
+  display: inline-block;
+}
+
+.screen .form-input label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.screen .form-input input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid red;
+  font-size: 12px;
+  border-radius: 2rem;
+  background-color: rgba(201, 198, 198, 0.425);
+}
+
+.screen .form-input p {
+  text-align: center;
+  font-size: smaller;
+  color: red;
+  margin-top: 10px;
+}
+
+.screen .form-input button {
+  padding: 10px 20px;
+  background: red;
+  color: #eee;
+  font-size: 18px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 2rem;
+}
+
+.chat-screen {
+  width: 100%;
+  height: 100%;
+}
+
+.chat-screen .header {
+  background: #111;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+}
+
+.chat-screen .header .logo {
+  font-size: 14px;
+  color: #eee;
+  font-weight: 600;
+}
+
+.chat-screen .header button {
+  padding: 5px 10px;
+  border: 1px solid #eee;
+  background: transparent;
+  color: #a09e9e;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+}
+
+.chat-screen .messages {
+  width: 100%;
+  height: calc(100% - 60px);
+  background: #f5f5f5;
+  overflow: auto;
+}
+
+.chat-screen .messages .message {
+  display: flex;
+  padding: 10px;
+}
+
+.chat-screen .messages .message > div {
+  max-width: 80%;
+  background: #fff;
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.05);
+  padding: 10px;
+}
+
+.chat-screen .messages .message.my-message {
+  justify-content: flex-end;
+}
+
+.chat-screen .messages .message.other-message {
+  justify-content: flex-start;
+}
+
+.chat-screen .messages .message .name {
+  font-size: 13px;
+  color: rgb(145, 144, 144);
+  margin-bottom: 5px;
+}
+
+.chat-screen .messages .message .text {
+  word-wrap: break-word;
+  color: black;
+  font-family: 'superhelio _regular', sans-serif;
+}
+
+.chat-screen .messages .update {
+  text-align: center;
+  padding: 10px;
+  font-style: italic;
+}
+
+.chat-screen .typebox {
+  width: 100%;
+  height: 30px;
+  display: flex;
+}
+
+.chat-screen .typebox input {
+  flex: 1;
+  height: 30px;
+  flex: 1;
+  height: 30px;
+  padding-left: 5px;
+  font-size: small;
+}
+
+.chat-screen .typebox button {
+  width: 80px;
+  height: 100%;
+  background: #111;
+  color: #9c9b9b;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+#send-message,
+#exit-chat,
+#join-user {
+  font-family: 'superhelio _regular', sans-serif;
+}
+
+.players-waiting-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-areas:
+    'title'
+    'player-1-card'
+    'player-2-card'
+    'player-3-card'
+    'player-4-card';
+  grid-template-rows: 30px 1fr 1fr 1fr 1fr 5px;
+  grid-gap: 10px;
+  justify-content: center;
+  grid-template-columns: 95%;
+  grid-gap: 10px;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.counter-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.players-waiting-title,
+.players-waiting-counter {
+  text-align: center;
+  margin-top: 5px;
+  font-size: xx-large;
+}
+
+:root {
+  --card-height: 100%;
+  --card-width: calc(var(--card-height) / 1.5);
+  --btn-color--primary: rgba(41, 118, 223, 1);
+  --btn-shadow: rgba(41, 118, 223, 0.5);
+  --btn-shine: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(250, 198, 100, 0.27) 100%);
+  --btn-color--success: rgba(0, 208, 0, 1);
+  --btn-shadow--success: rgba(0, 208, 0, 0.5);
+}
+
+.player-1-card,
+.player-2-card,
+.player-3-card,
+.player-4-card {
+  grid-area: player-1-card;
+  max-width: 100%;
+  max-height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 36px;
+  perspective: 100%;
+}
+
+.player-2-card {
+  grid-area: player-2-card;
+}
+
+.player-3-card {
+  grid-area: player-3-card;
+}
+
+.player-4-card {
+  grid-area: player-4-card;
+}
+
+.player-1-cover-image {
+  border-radius: 2rem;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.player-1-card-wrapper {
+  transition: all 0.5s;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.player-1-card:hover {
+  transform: perspective(100%) translateY(-5%) rotateX(25deg) translateZ(0);
+  border: 5px red solid;
+}
+
+.player-1-title {
+  width: 100%;
+  height: 50%;
+  object-fit: contain;
+  transition: transform 0.5s;
+}
+
+.player-1-card:hover .player-1-title {
+  transform: scale(calc(1 + (var(--hover, 0) * 0.25))) rotate(calc(var(--hover, 0) * -5deg));
+}
+
+.player-1-character {
+  max-width: 100%;
+  max-height: 100%;
+  opacity: 1;
+  transition: all 0.5s;
+  position: absolute;
+  z-index: -1;
+}
+
+.player-1-card:hover .player-1-character,
+.player-2-card:hover .player-1-character,
+.player-3-card:hover .player-1-character,
+.player-4-card:hover .player-1-character {
+  opacity: 1;
+}
+
+.player-1-card-footer {
+  padding: 0 1.5rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto auto;
+  background: hsl(0 0% 100% / 0.5);
+  backdrop-filter: blur(var(--blur));
+  height: 30%;
+  align-content: center;
+  --blur: 16px;
+  border-radius: 0px 0px 2rem 2rem;
+}
+
+.waiting {
+  color: darkgray;
+}
+
+.game-info-container {
+  grid-area: info;
+  display: grid;
+  grid-template-areas:
+    'title title'
+    'controls extras';
+  grid-template-rows: 100px 1fr 10px;
+  grid-template-columns: 49% 49%;
+  grid-gap: 5px;
+  justify-content: center;
+  background: linear-gradient(-45deg, #161616, #c2802a, #100664, #6d0214);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  border-radius: 30px;
+  border: 3px rgb(105, 104, 104) solid;
+  box-shadow: 0 1px 6px rgba(228, 227, 227, 0.712), 0 1px 4px rgba(253, 253, 253, 0.24);
+  color: #eee;
+}
+
+.synopsis-info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  padding: 5px;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  grid-area: title;
+}
+
+.game-info-title {
+  font-family: 'superhelio _regular', sans-serif;
+  text-align: center;
+  font-size: xx-large;
+  width: 50%;
+}
+
+.synopsis-text {
+  text-align: center;
+  padding: 5px;
+  font-family: 'superhelio _regular', sans-serif;
+  color: rgb(250, 247, 247);
+  font-size: large;
+}
+
+.game-controls-container {
+  grid-area: controls;
+  border: 3px red solid;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: start;
+  border-radius: 2rem;
+  overflow: auto;
+  font-family: 'superhelio _regular', sans-serif;
+  font-size: large;
+}
+
+.game-controls-title {
+  font-family: 'superhelio _regular', sans-serif;
+  text-align: center;
+  font-size: x-large;
+  margin-left: 40px;
+}
+
+.arrow-controls-info {
+  height: max-content;
+  margin-bottom: 5px;
+}
+
+.arrow-controls-image {
+  width: 40%;
+  float: right;
+}
+
+.arrow-controls-text {
+  padding: 20px;
+  margin-left: 10px;
+}
+
+.pick-up-controls-info,
+.bomb-controls-info {
+  display: flex;
+  align-items: start;
+  margin-bottom: 10px;
+}
+
+.pick-up-controls-image,
+.bomb-controls-image {
+  width: 60px;
+  height: 100%;
+  float: left;
+  margin-left: 10px;
+}
+
+.pick-up-controls-text,
+.bomb-controls-text {
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.power-up-controls-info {
+  width: 100%;
+}
+
+.power-up-controls-image {
+  width: 40%;
+  float: right;
+}
+
+.power-up-controls-text {
+  padding: 20px;
+  /* font-size: 1.1rem; */
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 10px;
+}
+
+.game-extras-container {
+  grid-area: extras;
+  border: 3px red solid;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: start;
+  border-radius: 2rem;
+  overflow: auto;
+  font-family: 'superhelio _regular', sans-serif;
+  justify-content: space-between;
+}
+
+.game-extras-title {
+  font-family: 'superhelio _regular', sans-serif;
+  text-align: center;
+  font-size: x-large;
+  margin-left: 40px;
+}
+
+.speed-info,
+.flames-info,
+.bombs-info {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.speed-image,
+.flames-image,
+.bombs-image {
+  width: 10%;
+  height: 100%;
+  float: left;
+  margin-left: 10px;
+}
+
+.speed-text,
+.flames-text,
+.bombs-text {
+  padding: 10px;
+  font-size: large;
+}
+
+.authors-info {
+  margin: 10px;
+  padding: 5px;
+}
+
+.authors-text {
+  text-align: center;
+}
+
+.speed-text > .arrow-controls-list {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.immune {
+  /* Define the animation for the flickering effect */
+  animation: flickerAnimation 0.5s infinite;
+}
+
+@keyframes flickerAnimation {
+  /* Define the keyframes for the flickering effect */
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* @mixin btn-shadow(--color) {
+  box-shadow: 0 15px 40px 0 --color;
+} */
+
+/* Helpers 
+====================== */
+.u-imgResponsive {
+  max-width: 100%;
+}
+
+.u-btn {
+  flex: 0 0 100%;
+  padding: 14px 20px;
+  border: 0;
+  background: --btn-shine, --btn-color--primary;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+}
+
+.u-btn--success {
+  background: --btn-color--success;
+}
+
+.u-btn:hover {
+  opacity: 0.9;
+}
+
+/* Global 
+====================== */
+
+/* body {
+  font-family: "Proxima Nova Soft Semibold", "Proxima Nova", 'Helvetica Neue', Helvetica, Arial;
+} */
+
+.congratulations-container {
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.congratulations-container.hidden {
+  display: none;
+}
+
+/* Modal 
+====================== */
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.modal {
+  width: 100%;
+  max-width: 530px;
+  margin: 20px;
+  overflow: hidden;
+  box-shadow: 0 60px 80px 0 rgba(0, 0, 0, 0.4);
+}
+
+.modal-top {
+  padding: 30px 30px 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background: rgba(251, 251, 251, 1);
+}
+
+.modal-icon {
+  display: block;
+  max-width: 207px;
+  margin: 0 auto 65px;
+}
+
+.modal-header {
+  margin-bottom: 10px;
+  font-size: 25.5px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.modal-subheader,
+.end-timer {
+  max-width: 350px;
+  margin: 0 auto;
+  font-size: 19px;
+  line-height: 1.3;
+  letter-spacing: 1.25px;
+  text-align: center;
+  color: #999;
+}
+
+.modal-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px 55px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: #fff;
+}
+
+.modal-btn {
+  margin: 10px auto;
+}
+
+/* Media Queries */
+@media (min-width: 456px) {
+  .modal-top {
+    padding: 69px 0 65px;
+  }
+
+  .modal-bottom {
+    padding: 30px 60px;
+  }
+
+  .modal-btn {
+    flex: 1;
+    margin: 0;
+    max-width: 190px;
+
+    &:nth-of-type(2) {
+      margin-left: 30px;
+    }
+  }
+}

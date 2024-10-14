@@ -1,0 +1,110 @@
+func wsHandler(w http.ResponseWriter, r *http.Request) {
+    // ... existing code ...
+
+    // Send initial online user data to the client
+    onlineUsers := database.GetAllOfType("username", "users")
+    initialMessage := struct {
+        Type         string   `json:"type"`
+        OnlineUsers  []string `json:"onlineUsers"`
+    }{
+        Type:        "initialOnlineUsers",
+        OnlineUsers: onlineUsers,
+    }
+
+    err = conn.WriteJSON(initialMessage)
+    if err != nil {
+        fmt.Println("Error writing initial online users:", err)
+        conn.Close()
+        return
+    }
+
+    // ... existing code ...
+
+    go reader(conn)
+}
+
+
+export default function wsLaunch() {
+    var socket = new WebSocket("ws://localhost:8080/ws");
+
+    socket.onopen = function (event) {
+        console.log("WebSocket connection opened, ", event);
+    };
+
+    socket.onmessage = function (event) {
+        var message = JSON.parse(event.data);
+
+        if (message.type === "initialOnlineUsers") {
+            var onlineUsersField = document.getElementById("onlineUsers");
+            onlineUsersField.textContent = "Online Users: " + message.onlineUsers.join(", ");
+        } else {
+            var messagesTextarea = document.getElementById("textArea");
+            messagesTextarea.value += message.data + "\n";
+        }
+    };
+
+    // ... other code ...
+}
+
+
+<div id="realTime">
+    <button id="msgWinButton">Chat</button>
+    <div id="chatArea">
+        <textarea id="textArea" readonly></textarea>
+        <input id="inputField" type="text">
+        <button id="sendButton">Send</button>
+    </div>
+    <div id="onlineUsers"></div>
+</div>
+_________________________________
+
+func wsHandler(w http.ResponseWriter, r *http.Request) {
+    // ... existing code ...
+
+    go reader(conn)
+
+    // Send updated online user list to all clients
+    onlineUsers := database.GetAllOfType("username", "users")
+    updateMessage := struct {
+        Type        string   `json:"type"`
+        OnlineUsers []string `json:"onlineUsers"`
+    }{
+        Type:        "updateOnlineUsers",
+        OnlineUsers: onlineUsers,
+    }
+
+    broadcastMessage(updateMessage)
+}
+
+func broadcastMessage(message interface{}) {
+    for _, c := range connections {
+        err := c.WriteJSON(message)
+        if err != nil {
+            fmt.Println("Error broadcasting message:", err)
+            // Handle error as needed
+        }
+    }
+}
+
+
+export default function wsLaunch() {
+    var socket = new WebSocket("ws://localhost:8080/ws");
+
+    socket.onopen = function (event) {
+        console.log("WebSocket connection opened, ", event);
+    };
+
+    socket.onmessage = function (event) {
+        var message = JSON.parse(event.data);
+
+        if (message.type === "updateOnlineUsers") {
+            var onlineUsersField = document.getElementById("onlineUsers");
+            onlineUsersField.textContent = "Online Users: " + message.onlineUsers.join(", ");
+        } else {
+            var messagesTextarea = document.getElementById("textArea");
+            messagesTextarea.value += message.data + "\n";
+        }
+    };
+
+    // ... other code ...
+}

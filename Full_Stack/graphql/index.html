@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <title>Graphql</title>
+    </head>
+    <body>
+        <div id="menu">
+            <button id="logoutBtn">Log out</button>
+        </div>
+        <div id="body">
+            <!-- LOGIN -->
+            <form id="login-form">
+                <div class="login-container">
+                    <h1>Log In</h1>
+                    <hr />
+
+                    <label for="LoginID" class="loginLabel">Username / Email</label>
+                    <input
+                        id="LoginID"
+                        type="text"
+                        placeholder="Enter username or email"
+                        name="LoginID"
+                        class="loginInput"
+                        required
+                    />
+
+                    <label for="password" class="loginLabel">Password</label>
+                    <input
+                        id="password"
+                        type="password"
+                        placeholder="Enter Password"
+                        name="password"
+                        class="loginInput"
+                        required
+                    />
+
+                    <span id="loginFeedback" class="error"></span>
+
+                    <div class="clearfix">
+                        <button type="submit" id="loginBtn">Login</button>
+                    </div>
+                </div>
+            </form>
+            <!-- HOME -->
+            <div id="main">
+                <div id="profile" class="card">
+                    <div id="profile-card">
+                        <div id="user">
+                            <div id="pfp"></div>
+                            <p id="username"></p>
+                        </div>
+                        <div id="user-info">
+                            <p class="label">Div 01</p>
+                            <table id="user-info-table"></table>
+                        </div>
+                    </div>
+                    <div class="graphs">
+                        <div id="graph1" class="graphDiv card">
+                            <h3>Skills</h3>
+                            <svg id="spider-graph"></svg>
+                        </div>
+
+                        <div id="graph2" class="graphDiv card">
+                            <h3>Total XP over time</h3>
+                            <svg id="xp-chart"></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="module" src="main.js"></script>
+    </body>
+</html>

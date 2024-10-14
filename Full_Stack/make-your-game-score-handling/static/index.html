@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
+
+        <link rel="stylesheet" type="text/css" href="/static/style.css" />
+        <link rel="icon" type="image/x-icon" href="/static/pacman.ico" />
+        <script src="../src/game.js" type="module"></script>
+
+        <title>Pac-Man</title>
+    </head>
+
+    <body>
+        <h1>Pac-Man</h1>
+        <h2 id="pause-tip">
+            Tip:<br />Use ← ↑ → ↓ buttons to play.<br />Press "esc" or "space" to pause/unpause
+        </h2>
+
+        <div id="fps"></div>
+        <div id="backgroundTV">
+            <div id="score">Score:<br />0</div>
+            <div id="timer"><span id="minutes">00</span>:<span id="seconds">00</span></div>
+            <div id="gameContainer"></div>
+        </div>
+        <div id="scoreboardContainer">
+            <h2>Scoreboard</h2>
+            <table id="scoreboard">
+                <thead>
+                    <tr>
+                        <th>rank</th>
+                        <th>name</th>
+                        <th>score</th>
+                        <th>time</th>
+                    </tr>
+                </thead>
+                <tbody id="scoreTableBody"></tbody>
+            </table>
+            <div id="pageNumber"></div>
+            <button id="previous" class="scoreboardButton previous">←</button>
+            <button id="next" class="scoreboardButton next">→</button>
+        </div>
+    </body>
+</html>

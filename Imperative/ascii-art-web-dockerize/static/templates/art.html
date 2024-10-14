@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ASCII-ART</title>
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+        <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="../styles.css">
+    </head>
+    <body>
+        <pre class="art">{{ .}}</pre>
+        <form method="POST" action="/file">
+            <button type="submit" class="nes-btn">Download as a .txt file</button>
+        </form>
+        <form method="POST" action="/">
+            <button type="submit" class="nes-btn">back</button>
+        </form>
+    </body>
+</html>
